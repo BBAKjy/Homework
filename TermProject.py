@@ -34,6 +34,7 @@ class Account:
                                                          
                 except Exception as e:
                         print("오류가 발생했습니다.", e)
+                        return
 
         def withdraw(self, amount, password):
                 try:                        
@@ -69,6 +70,7 @@ class Account:
                                                          
                 except Exception as e:
                         print("오류가 발생했습니다.", e)
+                        return
 
         def remittance(self, dest, amount, password):
                 try:                        
@@ -112,6 +114,7 @@ class Account:
                                                          
                 except Exception as e:
                         print("오류가 발생했습니다.", e)
+                        return
 
         def inquiry(self, password):
 
@@ -177,6 +180,7 @@ def adminMenu():
                                 
                         except Exception as e:
                                 print("오류가 발생했습니다.", e)
+                                return
                         
 
 
@@ -213,6 +217,7 @@ def adminMenu():
                                 
                         except Exception as e:
                                 print("오류가 발생했습니다.", e)
+                                return
 
                 elif select == 3:
                         print("")
@@ -237,6 +242,7 @@ def adminMenu():
                                 
                         except Exception as e:
                                 print("오류가 발생했습니다.", e)
+                                return
 
                 elif select == 4:
                         break
@@ -269,6 +275,7 @@ def clientMenu():
                                                  
         except Exception as e:
                 print("오류가 발생했습니다.", e)
+                return
         
         while True:
                 print("")
