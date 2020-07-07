@@ -17,8 +17,8 @@ int main(int argc, char *argv[]){
                 return -1;
         }
         else if(argc == 3){
-                fd = fopen(argv[1], "r");
-                dest = fopen(argv[2], "w");
+                fd = fopen(argv[1], "rb");
+                dest = fopen(argv[2], "wb");
 
                 while(len = fread(buf, 1, 255, fd)){
                         buf[len] = '\0';
@@ -37,8 +37,8 @@ int main(int argc, char *argv[]){
                         strcpy(filename, argv[argc-1]);
                         strcat(filename, argv[i]);
 
-                        fd = fopen(argv[i], "r");
-                        dest = fopen(filename, "w");
+                        fd = fopen(argv[i], "rb");
+                        dest = fopen(filename, "wb");
 
                         free(filename);
 
