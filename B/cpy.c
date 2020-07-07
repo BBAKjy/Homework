@@ -18,7 +18,25 @@ int main(int argc, char *argv[]){
         }
         else if(argc == 3){
                 fd = fopen(argv[1], "rb");
+
+                if (fd == 0){
+                        printf("No such file or Directory\n");
+
+                        fclose(fd);
+
+                        return -1;
+                }
+
                 dest = fopen(argv[2], "wb");
+
+                if(dest == 0){
+                        printf("No such file or Directory\n");
+
+                        fclose(dest);
+                        fclose(fd);
+
+                        return -1;
+                }
 
                 while(len = fread(buf, 1, 255, fd)){
                         buf[len] = '\0';
@@ -31,6 +49,7 @@ int main(int argc, char *argv[]){
         }
         else{
                 for(int i=1;i<argc-1;i++){
+
                         char *filename = malloc(sizeof(char)*(strlen(argv[argc-1])+strlen(argv[i])+1));
                         int f_size = strlen(argv[argc-1])+strlen(argv[i])+1;
 
@@ -38,7 +57,25 @@ int main(int argc, char *argv[]){
                         strcat(filename, argv[i]);
 
                         fd = fopen(argv[i], "rb");
+
+                        if(fd == 0){
+                                printf("No such file or Directory\n");
+
+                                fclose(fd);
+
+                                return -1;
+                        }
+
                         dest = fopen(filename, "wb");
+
+                        if(dest == 0){
+                                printf("No such file or Directory\n");
+
+                                fclose(dest);
+                                fclose(fd);
+
+                                return -1;
+                        }
 
                         free(filename);
 
